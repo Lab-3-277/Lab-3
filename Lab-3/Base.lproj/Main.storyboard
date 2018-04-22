@@ -228,6 +228,8 @@
                         <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="yI7-hG-BQF" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="99r-ZH-Fzv"/>
+                            <constraint firstItem="yI7-hG-BQF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UjD-ZR-Jdo"/>
+                            <constraint firstItem="yI7-hG-BQF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bq3-AS-Epy"/>
                             <constraint firstItem="yI7-hG-BQF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mvM-ot-Ice"/>
                             <constraint firstItem="yI7-hG-BQF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="61" id="oga-tH-n5s"/>
                             <constraint firstItem="yI7-hG-BQF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="v5Y-HI-fpz"/>
@@ -240,12 +242,18 @@
                                 <rect key="frame" x="16" y="11" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
+                            <connections>
+                                <action selector="navButton:" destination="BYZ-38-t0r" id="kFL-jA-EXQ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="navview" destination="yI7-hG-BQF" id="FHQ-Bu-12a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="421" y="691"/>
+            <point key="canvasLocation" x="753" y="691"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mak-1i-3w3">
