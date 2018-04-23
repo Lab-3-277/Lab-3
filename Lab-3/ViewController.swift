@@ -12,21 +12,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navview.isHidden = true
-        
-       
+        navview.layer.shadowOpacity = 1
+        navview.layer.shadowRadius = 61
     }
 
-    @IBAction func navButton(_ sender: Any) {
-        navview.isHidden = true
-        
-        
-        navview.bringSubview(toFront: navview)
-
+    
+    @IBAction func plusButton(_ sender: Any) {
+        navview.isHidden = !navview.isHidden
     }
     
     @IBOutlet var navview: UIView!
-    
-    
 }
 
