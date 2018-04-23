@@ -79,9 +79,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func buttonDone(_ sender: UIButton) {
-        var numericExpression = "4+3"
-        let expression = NSExpression(format: numericExpression)
-        var result = expression.expressionValue(with:nil,context:nil) as! NSNumber
+        var numericExpression = resultText.text as! String
+        let expr = NSExpression(format: numericExpression)
+        if let result = expr.expressionValue(with: nil, context: nil) as? Double {
+            
+        }
     }
     
 }
