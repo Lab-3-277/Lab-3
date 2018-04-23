@@ -231,53 +231,39 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yI7-hG-BQF">
-                                <rect key="frame" x="-67" y="64" width="81" height="606"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yI7-hG-BQF">
+                                <rect key="frame" x="-2" y="64" width="165" height="734"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9FW-mX-LoU">
-                                        <rect key="frame" x="0.0" y="27" width="140" height="48"/>
+                                        <rect key="frame" x="0.0" y="27" width="165" height="48"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                        <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Show Me!">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9Q-gA-w1P">
-                                        <rect key="frame" x="0.0" y="83" width="132" height="46"/>
+                                        <rect key="frame" x="0.0" y="83" width="165" height="46"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                        <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Assign Numbers">
-                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="ae5-Lk-v56"/>
-                                </constraints>
+                                <color key="backgroundColor" red="0.58081901069999997" green="0.088427625600000004" blue="0.31863921880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="yI7-hG-BQF" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="99r-ZH-Fzv"/>
-                            <constraint firstItem="yI7-hG-BQF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UjD-ZR-Jdo"/>
-                            <constraint firstItem="yI7-hG-BQF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bq3-AS-Epy"/>
-                            <constraint firstItem="yI7-hG-BQF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="mvM-ot-Ice"/>
-                            <constraint firstItem="yI7-hG-BQF" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="61" id="oga-tH-n5s"/>
-                            <constraint firstItem="yI7-hG-BQF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="v5Y-HI-fpz"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Make 24" id="U0K-46-IMI">
-                        <barButtonItem key="leftBarButtonItem" id="r6W-CP-lMF">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="TJf-An-U5q" customClass="NavButton">
-                                <rect key="frame" x="16" y="11" width="22" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="tRW-yg-Wyd">
                             <connections>
-                                <action selector="navButton:" destination="BYZ-38-t0r" id="kFL-jA-EXQ"/>
+                                <action selector="navPlus:" destination="BYZ-38-t0r" id="vzi-JZ-Elh"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>

@@ -16,13 +16,10 @@ class ViewController: UIViewController {
         navview.isHidden = true
         resultText.text = ""
     }
+    
 
-    @IBAction func navButton(_ sender: Any) {
-        navview.isHidden = true
-        
-        
-        navview.bringSubview(toFront: navview)
-
+    @IBAction func navPlus(_ sender: Any) {
+        navview.isHidden = !navview.isHidden
     }
     
     @IBOutlet var navview: UIView!
