@@ -77,5 +77,12 @@ class ViewController: UIViewController {
         let op = sender.titleLabel?.text
         resultText.text?.append("\(op as! String)")
     }
+    
+    @IBAction func buttonDone(_ sender: UIButton) {
+        var numericExpression = "4+3"
+        let expression = NSExpression(format: numericExpression)
+        var result = expression.expressionValue(with:nil,context:nil) as! NSNumber
+    }
+    
 }
 
