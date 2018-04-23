@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -279,6 +280,10 @@
                                 <action selector="navButton:" destination="BYZ-38-t0r" id="kFL-jA-EXQ"/>
                             </connections>
                         </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="stop" id="QAS-6c-KiW"/>
+                            <barButtonItem systemItem="fastForward" id="kM6-yr-eSq"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="navview" destination="yI7-hG-BQF" id="FHQ-Bu-12a"/>
