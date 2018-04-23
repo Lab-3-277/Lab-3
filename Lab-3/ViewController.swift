@@ -68,13 +68,14 @@ class ViewController: UIViewController {
         resultText.text?.append("\(op as! String)")
     }
     
-    
     @IBAction func buttonLeftPara(_ sender: UIButton) {
-        resultText.text = ""
+        let op = sender.titleLabel?.text
+        resultText.text?.append("\(op as! String)")
     }
     
     @IBAction func buttonRightPara(_ sender: UIButton) {
-        resultText.text = ""
+        let op = sender.titleLabel?.text
+        resultText.text?.append("\(op as! String)")
     }
 }
 
