@@ -9,15 +9,66 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    // variables for timer
+    var seconds = 0
+    var timer = Timer()
+    
+    // timer label from UI
+    @IBOutlet var timer_lable: UILabel!
     @IBOutlet weak var resultText: UILabel!
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navview.isHidden = true
         resultText.text = ""
+        
+        //call this method to start timer
+        runTimer()
+    }
+    
+    
+    
+    
+    // action maethods for sidebar buttons
+    @IBAction func Assign(_ sender: Any) {
+        restart_timer()
+    }
+    
+    @IBAction func show_me_button(_ sender: Any) {
+        restart_timer()
+    }
+   
+    // functions for timer
+    func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(ViewController.updateTimer)), userInfo: nil, repeats: true)
+    }
+    @objc func updateTimer() {
+        var min = Int(seconds) / 60 % 60
+        var sec = Int(seconds) % 60
+        
+        timer_lable.text = String(min) + ":" + String(seconds)
+        seconds += 1 
+    }
+    
+    func restart_timer() {
+        seconds = 0
     }
     
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @IBAction func navPlus(_ sender: Any) {
         navview.isHidden = !navview.isHidden
     }
@@ -76,6 +127,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func buttonDone(_ sender: UIButton) {
+        restart_timer()
+        
         var numericExpression = resultText.text as! String
         let expr = NSExpression(format: numericExpression)
         if let result = expr.expressionValue(with: nil, context: nil) as? Double {
