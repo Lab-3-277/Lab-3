@@ -15,10 +15,18 @@ class ViewController: UIViewController {
     // variables for timer
     var seconds = 0
     var timer = Timer()
+    var num1 = 0
+    var num2 = 0
+    var num3 = 0
+    var num4 = 0
     
     // timer label from UI
     @IBOutlet var timer_lable: UILabel!
     @IBOutlet weak var resultText: UILabel!
+    @IBOutlet var num4_out: UIButton!
+    @IBOutlet var num3_out: UIButton!
+    @IBOutlet var num2_out: UIButton!
+    @IBOutlet var num1_out: UIButton!
    
     @IBOutlet var succeded_tex: UILabel!
     
@@ -29,11 +37,21 @@ class ViewController: UIViewController {
        
         //call this method to start timer
         runTimer()
-        
+        repeat {
+            let rand1:UInt32 = arc4random_uniform(10)
+            num1 = Int(rand1)
+            let rand2:UInt32 = arc4random_uniform(10)
+            num2 = Int(rand2)
+            let rand3:UInt32 = arc4random_uniform(10)
+            num3 = Int(rand3)
+            let rand4:UInt32 = arc4random_uniform(10)
+            num4 = Int(rand4)
+        }while getSolution(a: num1, b: num2, c: num3, d: num4) == ""
+        num1_out.setTitle("\(num1)", for: .normal)
+        num2_out.setTitle("\(num2)", for: .normal)
+        num3_out.setTitle("\(num3)", for: .normal)
+        num4_out.setTitle("\(num4)", for: .normal)
     }
-    
-    
-    
     
     // action maethods for sidebar buttons
     @IBAction func Assign(_ sender: Any) {
@@ -60,20 +78,6 @@ class ViewController: UIViewController {
         seconds = 0
     }
     
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
     
     @IBAction func buttonFour(_ sender: UIButton) {
         let number = sender.titleLabel?.text
@@ -144,7 +148,7 @@ class ViewController: UIViewController {
         let res = expr.expressionValue(with: nil, context: nil) as! Double
         if (abs(res - N) < P)
         {
-            resultText.text = "24"
+            //resultText.text = "24"
             let banner = NotificationBanner(title: "Correct !!", subtitle: "", style: .success)
             banner.show()
             
@@ -167,10 +171,7 @@ class ViewController: UIViewController {
     }
     
     
-    @IBOutlet var num4_out: UIButton!
-    @IBOutlet var num3_out: UIButton!
-    @IBOutlet var num2_out: UIButton!
-    @IBOutlet var num1_out: UIButton!
+   
     @IBAction func Back_Button(_ sender: Any) {
         // write code to delete one from result text box
         var numericExpression = resultText.text as! String
@@ -199,5 +200,98 @@ class ViewController: UIViewController {
         
         resultText.text = String(numericExpression.dropLast())
     }
+    
+    func getSolution(a:Int,b:Int,c:Int,d:Int)->String
+    {
+        var n:[Int] = [a,b,c,d]
+        var c:[Character] = ["+","-","*","/"]
+        for w in 0...3{
+            for x in 0...3{
+                if(x==w){
+                    continue;
+                }
+                for y in 0...3{
+                    if(y==x || y==w)
+                    {
+                        continue;
+                    }
+                    for z in 0...3{
+                        if(z==w||z==x||z==y)
+                        {
+                            continue;
+                        }
+                        for i in 0...3{
+                            for j in 0...3{
+                                for k in 0...3{
+                                    var res:String = eval(e:n[w],f:n[x],g:n[y],h:n[z],x:c[i],y:c[j],z:c[k])
+                                    if(!res.isEmpty)
+                                    {
+                                        return res
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+                
+            }
+        }
+        return ""
+    }
+    
+    
+    func eval(e:Int,f:Int,g:Int,h:Int,x:Character,y:Character,z:Character)->String
+    {
+        do{
+        var a = Double(e)
+        var b = Double(f)
+        var c = Double(g)
+        var d = Double(h)
+    
+        if (bingo(x:evalu(a:evalu(a:evalu(a:a,x:x,b:b),x:y,b:c),x:z,b:d))) {
+            return "((\(e)\(x)\(f))\(y)\(g))\(z)\(h)";
+        }
+        if (bingo(x:evalu(a:evalu(a:a, x:x, b:evalu(a:b, x:y, b:c)), x:z, b:d))) {
+            return "(\(e)\(x)(\(f)\(y)\(g)))\(z)\(h)";
+        }
+        if (bingo(x:evalu(a:a, x:x, b:evalu(a:evalu(a:b, x:y, b:c), x:z, b:d)))) {
+            return "\(e)\(x)((\(f)\(y)\(g))\(z)\(h))";
+        }
+        if (bingo(x:evalu(a:a, x:x, b:evalu(a:b, x:y, b:evalu(a:c, x:z, b:d))))) {
+            return "\(e)\(x)(\(f)\(y)(\(g)\(z)\(h)))";
+        }
+        if (bingo(x:evalu(a:evalu(a:a, x:x, b:b), x:y, b:evalu(a:c, x:z, b:d)))) {
+            return "((\(e)\(x)\(f))\(y)(\(g)\(z)\(h)))";
+        }
+        }catch{
+                
+            }
+            
+        return ""
+    }
+    
+    func bingo(x:Double)->Bool {
+        let N:Double = 24
+        return abs(x - N) < 0.0000001
+    }
+    
+    
+    func evalu(a:Double,x:Character, b:Double)->Double{
+        switch (x) {
+        case "+":
+            return a + b
+        case "-":
+            return a - b
+        case "*":
+            return a * b
+        default:
+            return a / b
+        }
+    
+    
+    
+    }
 }
+
 
