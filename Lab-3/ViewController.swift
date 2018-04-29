@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     var num3 = 0
     var num4 = 0
     var skip_count = 0
+    var attempt_count = 0
     
     // timer label from UI
     @IBOutlet var timer_lable: UILabel!
@@ -209,20 +210,57 @@ class ViewController: UIViewController {
         if(!solution.isEmpty){
             
             let banner = NotificationBanner(title: "Solution: ", subtitle: "\(solution)", style: .success)
-            
             banner.show()
-            
         }
             
         else{
             
             let banner = NotificationBanner(title: "Sorry, there are actually no solutions", subtitle: "", style: .danger)
-            
             banner.show()
             
         }
+        skip_count += 1
+        skipped.text = String(skip_count)
+        if(!num1_out.isEnabled)
+        {
+            num1_out.isEnabled = true
+            num1_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        }
+        if(!num2_out.isEnabled)
+        {
+            num2_out.isEnabled = true
+            num2_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        }
+        if(!num3_out.isEnabled)
+        {
+            num3_out.isEnabled = true
+            num3_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        }
+        if(!num4_out.isEnabled)
+        {
+            num4_out.isEnabled = true
+            num4_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        }
+        generateNewPuzzle()
         
-
+    }
+    
+    
+    //Generates New puzzle: increase attempt count: restart timer
+    func generateNewPuzzle()
+        
+    {
+        
+        resultText.text = ""
+        
+        attempt_count += 1
+        
+        attempt.text = String(attempt_count)
+        
+        generateRandomNumbers()
+        
+        restart_timer()
+        
     }
     
     
