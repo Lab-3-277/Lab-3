@@ -37,20 +37,8 @@ class ViewController: UIViewController {
        
         //call this method to start timer
         runTimer()
-        repeat {
-            let rand1:UInt32 = arc4random_uniform(10)
-            num1 = Int(rand1)
-            let rand2:UInt32 = arc4random_uniform(10)
-            num2 = Int(rand2)
-            let rand3:UInt32 = arc4random_uniform(10)
-            num3 = Int(rand3)
-            let rand4:UInt32 = arc4random_uniform(10)
-            num4 = Int(rand4)
-        }while getSolution(a: num1, b: num2, c: num3, d: num4) == ""
-        num1_out.setTitle("\(num1)", for: .normal)
-        num2_out.setTitle("\(num2)", for: .normal)
-        num3_out.setTitle("\(num3)", for: .normal)
-        num4_out.setTitle("\(num4)", for: .normal)
+        generateRandomNumbers();
+        
     }
     
     // action maethods for sidebar buttons
@@ -288,9 +276,34 @@ class ViewController: UIViewController {
         default:
             return a / b
         }
+    }
     
-    
-    
+    func generateRandomNumbers()
+    {
+        var rand1:UInt32 = 0
+        var rand2:UInt32 = 0
+        var rand3:UInt32 = 0
+        var rand4:UInt32 = 0
+        repeat {
+            rand1 = arc4random_uniform(10)
+            num1 = Int(rand1)
+            repeat{
+            rand2 = arc4random_uniform(10)
+            }while rand2 == rand1
+            num2 = Int(rand2)
+            repeat{
+            rand3 = arc4random_uniform(10)
+            }while (rand3 == rand1) || (rand3 == rand2)
+            num3 = Int(rand3)
+            repeat{
+            rand4 = arc4random_uniform(10)
+            }while (rand4 == rand1) || (rand4 == rand2) || (rand4 == rand3)
+            num4 = Int(rand4)
+        }while getSolution(a: num1, b: num2, c: num3, d: num4) == ""
+        num1_out.setTitle("\(num1)", for: .normal)
+        num2_out.setTitle("\(num2)", for: .normal)
+        num3_out.setTitle("\(num3)", for: .normal)
+        num4_out.setTitle("\(num4)", for: .normal)
     }
 }
 
