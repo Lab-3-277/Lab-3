@@ -221,6 +221,26 @@ class ViewController: UIViewController {
         }
         skip_count += 1
         skipped.text = String(skip_count)
+        
+        generateNewPuzzle()
+        
+    }
+    
+    @IBAction func Clear(_ sender: Any) {
+        resultText.text = ""
+    }
+    
+    
+    //Generates New puzzle: increase attempt count: restart timer
+    func generateNewPuzzle()
+        
+    {
+        
+        resultText.text = ""
+        
+        attempt_count += 1
+        
+        attempt.text = String(attempt_count)
         if(!num1_out.isEnabled)
         {
             num1_out.isEnabled = true
@@ -241,27 +261,15 @@ class ViewController: UIViewController {
             num4_out.isEnabled = true
             num4_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
         }
-        generateNewPuzzle()
-        
-    }
-    
-    
-    //Generates New puzzle: increase attempt count: restart timer
-    func generateNewPuzzle()
-        
-    {
-        
-        resultText.text = ""
-        
-        attempt_count += 1
-        
-        attempt.text = String(attempt_count)
         
         generateRandomNumbers()
         
         restart_timer()
         
     }
+    
+    
+    
     
     
     func getSolution(a:Int,b:Int,c:Int,d:Int)->String
@@ -360,18 +368,18 @@ class ViewController: UIViewController {
         var rand3:UInt32 = 0
         var rand4:UInt32 = 0
         repeat {
-            rand1 = arc4random_uniform(10)+1
+            rand1 = arc4random_uniform(9)+1
             num1 = Int(rand1)
             repeat{
-            rand2 = arc4random_uniform(10)+1
+            rand2 = arc4random_uniform(9)+1
             }while rand2 == rand1
             num2 = Int(rand2)
             repeat{
-            rand3 = arc4random_uniform(10)+1
+            rand3 = arc4random_uniform(9)+1
             }while (rand3 == rand1) || (rand3 == rand2)
             num3 = Int(rand3)
             repeat{
-            rand4 = arc4random_uniform(10)+1
+            rand4 = arc4random_uniform(9)+1
             }while (rand4 == rand1) || (rand4 == rand2) || (rand4 == rand3)
             num4 = Int(rand4)
         }while getSolution(a: num1, b: num2, c: num3, d: num4) == ""
