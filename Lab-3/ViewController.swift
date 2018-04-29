@@ -160,8 +160,6 @@ class ViewController: UIViewController {
             banner.show()
         }
         
-        
-
     }
     
     
@@ -210,19 +208,21 @@ class ViewController: UIViewController {
         
         if(!solution.isEmpty){
             
-            let banner = NotificationBanner(title: "Solution: ", subtitle: "\(solution)", style: .success)
-            banner.show()
+            /*let banner = NotificationBanner(title: "Solution: ", subtitle: "\(solution)", style: .success)
+            banner.show()*/
+            let alert = UIAlertController(title: "solution: \(solution)", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
         }
             
         else{
-            
-            let banner = NotificationBanner(title: "Sorry, there are actually no solutions", subtitle: "", style: .danger)
-            banner.show()
+            let alert = UIAlertController(title: "Sorry, there are actually no solutions", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
             
         }
         skip_count += 1
         skipped.text = String(skip_count)
-        
         generateNewPuzzle()
         
     }
