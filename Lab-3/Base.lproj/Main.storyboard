@@ -249,6 +249,9 @@
                                             </barButtonItem>
                                             <barButtonItem title="Item" image="key.png" id="wU9-SX-SS6">
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="show_me:" destination="BYZ-38-t0r" id="Q3B-Qw-0re"/>
+                                                </connections>
                                             </barButtonItem>
                                             <barButtonItem style="done" systemItem="fastForward" id="kM6-yr-eSq">
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -263,11 +266,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Make 24" id="U0K-46-IMI"/>
                     <connections>
+                        <outlet property="attempt" destination="ph8-R8-nW4" id="Vw8-ha-hS5"/>
                         <outlet property="num1_out" destination="ip9-5N-rv6" id="lBe-Me-pFl"/>
                         <outlet property="num2_out" destination="GRa-Rd-CCL" id="TLj-OA-6Ai"/>
                         <outlet property="num3_out" destination="Erk-sb-pAq" id="ExJ-hH-Doj"/>
                         <outlet property="num4_out" destination="5f3-3b-aJO" id="3sO-yr-ygm"/>
                         <outlet property="resultText" destination="McS-L0-Hvr" id="f7U-gc-1fL"/>
+                        <outlet property="skipped" destination="nIb-uC-Ov7" id="X9g-My-8mK"/>
                         <outlet property="succeded_tex" destination="sEA-6v-alr" id="Uiw-bb-IkF"/>
                         <outlet property="timer_lable" destination="qPz-gP-rxB" id="fZq-R8-Z9b"/>
                     </connections>

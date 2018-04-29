@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     var num2 = 0
     var num3 = 0
     var num4 = 0
+    var skip_count = 0
     
     // timer label from UI
     @IBOutlet var timer_lable: UILabel!
@@ -29,6 +30,9 @@ class ViewController: UIViewController {
     @IBOutlet var num1_out: UIButton!
    
     @IBOutlet var succeded_tex: UILabel!
+    
+    @IBOutlet weak var skipped: UILabel!
+    @IBOutlet weak var attempt: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,9 +50,9 @@ class ViewController: UIViewController {
         restart_timer()
     }
     
-    @IBAction func show_me_button(_ sender: Any) {
+    /*@IBAction func show_me_button(_ sender: Any) {
         restart_timer()
-    }
+    }*/
    
     // functions for timer
     func runTimer() {
@@ -188,6 +192,39 @@ class ViewController: UIViewController {
         
         resultText.text = String(numericExpression.dropLast())
     }
+    
+    
+    
+    @IBAction func show_me(_ sender: UIBarButtonItem) {
+        let n1:Int! = Int(num1_out.titleLabel?.text as! String)
+        
+        let n2:Int! = Int(num2_out.titleLabel?.text as! String)
+        
+        let n3:Int! = Int(num3_out.titleLabel?.text as! String)
+        
+        let n4:Int! = Int(num4_out.titleLabel?.text as! String)
+        
+        let solution = getSolution(a:n1,b:n2,c:n3,d:n4)
+        
+        if(!solution.isEmpty){
+            
+            let banner = NotificationBanner(title: "Solution: ", subtitle: "\(solution)", style: .success)
+            
+            banner.show()
+            
+        }
+            
+        else{
+            
+            let banner = NotificationBanner(title: "Sorry, there are actually no solutions", subtitle: "", style: .danger)
+            
+            banner.show()
+            
+        }
+        
+
+    }
+    
     
     func getSolution(a:Int,b:Int,c:Int,d:Int)->String
     {
