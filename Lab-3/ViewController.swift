@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     var num3 = 0
     var num4 = 0
     var skip_count = 0
-    var attempt_count = 0
+    var attempt_count = 1
     
     // timer label from UI
     @IBOutlet var timer_lable: UILabel!
@@ -41,6 +41,7 @@ class ViewController: UIViewController {
         resultText.text = ""
        
         //call this method to start timer
+        attempt.text = String(attempt_count)
         runTimer()
         generateRandomNumbers();
         
@@ -231,6 +232,14 @@ class ViewController: UIViewController {
     }
     
     
+    
+    @IBAction func skip_button(_ sender: Any) {
+        skip_count += 1
+        skipped.text = String(skip_count)
+        generateNewPuzzle()
+    }
+    
+    
     //Generates New puzzle: increase attempt count: restart timer
     func generateNewPuzzle()
         
@@ -238,7 +247,7 @@ class ViewController: UIViewController {
         
         resultText.text = ""
         
-        attempt_count += 1
+        attempt_count = 1
         
         attempt.text = String(attempt_count)
         if(!num1_out.isEnabled)
