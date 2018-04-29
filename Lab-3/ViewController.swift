@@ -285,18 +285,18 @@ class ViewController: UIViewController {
         var rand3:UInt32 = 0
         var rand4:UInt32 = 0
         repeat {
-            rand1 = arc4random_uniform(10)
+            rand1 = arc4random_uniform(10)+1
             num1 = Int(rand1)
             repeat{
-            rand2 = arc4random_uniform(10)
+            rand2 = arc4random_uniform(10)+1
             }while rand2 == rand1
             num2 = Int(rand2)
             repeat{
-            rand3 = arc4random_uniform(10)
+            rand3 = arc4random_uniform(10)+1
             }while (rand3 == rand1) || (rand3 == rand2)
             num3 = Int(rand3)
             repeat{
-            rand4 = arc4random_uniform(10)
+            rand4 = arc4random_uniform(10)+1
             }while (rand4 == rand1) || (rand4 == rand2) || (rand4 == rand3)
             num4 = Int(rand4)
         }while getSolution(a: num1, b: num2, c: num3, d: num4) == ""
