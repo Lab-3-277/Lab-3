@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import NotificationBannerSwift
+
 
 class ViewController: UIViewController {
     
@@ -126,15 +128,41 @@ class ViewController: UIViewController {
         resultText.text?.append("\(op as! String)")
     }
     
-    @IBAction func buttonDone(_ sender: UIButton) {
-        restart_timer()
-        
+    
+    @IBAction func Done_button(_ sender: Any) {
+        let N:Double = 24
+        let P:Double = 0.0000001
         var numericExpression = resultText.text as! String
         let expr = NSExpression(format: numericExpression)
-        if let result = expr.expressionValue(with: nil, context: nil) as? Double {
+        let res = expr.expressionValue(with: nil, context: nil) as! Double
+        if (abs(res - N) < P)
+        {
+            resultText.text = "24"
+            let banner = NotificationBanner(title: "Correct !!", subtitle: "", style: .success)
+            banner.show()
             
+            //Dialog
+            var o = "Binggo!!! " + numericExpression + "=24"
+            let alert = UIAlertController(title: o, message: "", preferredStyle: .alert)
+            
+            
+            alert.addAction(UIAlertAction(title: "Next Puzzle", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: true)
         }
+        else{
+            let banner = NotificationBanner(title: "Incorrect. Please try again!", subtitle: "", style: .danger)
+            banner.show()
+        }
+        
+        
+
     }
     
+    @IBAction func Back_Button(_ sender: Any) {
+        // write code to delete one from result text box
+        var numericExpression = resultText.text as! String
+        resultText.text = String(numericExpression.dropLast())
+    }
 }
 
