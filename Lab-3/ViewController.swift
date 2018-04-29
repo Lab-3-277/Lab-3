@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navview.isHidden = true
+       
         resultText.text = ""
         
         //call this method to start timer
@@ -71,11 +71,7 @@ class ViewController: UIViewController {
     
     
     
-    @IBAction func navPlus(_ sender: Any) {
-        navview.isHidden = !navview.isHidden
-    }
-    
-    @IBOutlet var navview: UIView!
+   
     
     @IBAction func buttonFour(_ sender: UIButton) {
         let number = sender.titleLabel?.text
