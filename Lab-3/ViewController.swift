@@ -20,14 +20,16 @@ class ViewController: UIViewController {
     @IBOutlet var timer_lable: UILabel!
     @IBOutlet weak var resultText: UILabel!
    
+    @IBOutlet var succeded_tex: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
         resultText.text = ""
-        
+       
         //call this method to start timer
         runTimer()
+        
     }
     
     
@@ -50,7 +52,7 @@ class ViewController: UIViewController {
         var min = Int(seconds) / 60 % 60
         var sec = Int(seconds) % 60
         
-        timer_lable.text = String(min) + ":" + String(seconds)
+        timer_lable.text = String(min) + ":" + String(sec)
         seconds += 1 
     }
     
@@ -76,20 +78,29 @@ class ViewController: UIViewController {
     @IBAction func buttonFour(_ sender: UIButton) {
         let number = sender.titleLabel?.text
         resultText.text?.append("\(number as! String)")
+        sender.isEnabled = false
+        sender.backgroundColor = #colorLiteral(red: 0.218662435, green: 0, blue: 0.3628733235, alpha: 1)
     }
     
     @IBAction func buttonThree(_ sender: UIButton) {
         let number = sender.titleLabel?.text
         resultText.text?.append("\(number as! String)")
+        sender.isEnabled = false
+         sender.backgroundColor = #colorLiteral(red: 0.218662435, green: 0, blue: 0.3628733235, alpha: 1)
     }
     
     @IBAction func buttonTwo(_ sender: UIButton) {
         let number = sender.titleLabel?.text
-        resultText.text?.append("\(number as! String)")    }
+        resultText.text?.append("\(number as! String)")
+        sender.isEnabled = false
+          sender.backgroundColor = #colorLiteral(red: 0.218662435, green: 0, blue: 0.3628733235, alpha: 1)
+    }
     
     @IBAction func buttonOne(_ sender: UIButton) {
         let number = sender.titleLabel?.text
         resultText.text?.append("\(number as! String)")
+        sender.isEnabled = false
+         sender.backgroundColor = #colorLiteral(red: 0.218662435, green: 0, blue: 0.3628733235, alpha: 1)
     }
     
     @IBAction func buttonAdd(_ sender: UIButton) {
@@ -155,9 +166,37 @@ class ViewController: UIViewController {
 
     }
     
+    
+    @IBOutlet var num4_out: UIButton!
+    @IBOutlet var num3_out: UIButton!
+    @IBOutlet var num2_out: UIButton!
+    @IBOutlet var num1_out: UIButton!
     @IBAction func Back_Button(_ sender: Any) {
         // write code to delete one from result text box
         var numericExpression = resultText.text as! String
+       
+        
+        if( num1_out.titleLabel?.text ==  String(numericExpression.last!)   )
+        {
+            num1_out.isEnabled = true
+            num1_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        }
+        if( num2_out.titleLabel?.text ==  String(numericExpression.last!)   )
+        {
+            num2_out.isEnabled = true
+            num2_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        }
+        if( num3_out.titleLabel?.text ==  String(numericExpression.last!)   )
+        {
+            num3_out.isEnabled = true
+            num3_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        }
+        if( num4_out.titleLabel?.text ==  String(numericExpression.last!)   )
+        {
+            num4_out.isEnabled = true
+            num4_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        }
+        
         resultText.text = String(numericExpression.dropLast())
     }
 }
