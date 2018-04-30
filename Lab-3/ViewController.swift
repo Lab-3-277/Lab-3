@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     var num4 = 0
     var skip_count = 0
     var attempt_count = 1
+    var succeeded_count = 0
     
     // timer label from UI
     @IBOutlet var timer_lable: UILabel!
@@ -167,7 +168,8 @@ class ViewController: UIViewController {
         
         if (soultion)
         {
-            //resultText.text = "24"
+            succeeded_count += 1
+            succeded_tex.text = String(succeeded_count)
             let banner = NotificationBanner(title: "Correct !!", subtitle: "", style: .success)
             banner.show()
             
