@@ -35,16 +35,33 @@ class ViewController: UIViewController {
     @IBOutlet weak var skipped: UILabel!
     @IBOutlet weak var attempt: UILabel!
     
+    @IBOutlet weak var done_button: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
        
         resultText.text = ""
-       
+        Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.checkLabelChange), userInfo: nil, repeats: true)
         //call this method to start timer
         attempt.text = String(attempt_count)
         runTimer()
         generateRandomNumbers();
         
+    }
+    
+    @objc func checkLabelChange()
+    {
+        if(resultText.text?.isEmpty)!
+        {
+            done_button.isEnabled = false
+            done_button.backgroundColor = UIColor.lightGray
+        }else
+        {
+            if(!done_button.isEnabled)
+            {
+              done_button.isEnabled = true
+                done_button.backgroundColor = UIColor.white
+            }
+        }
     }
     
     // action maethods for sidebar buttons
@@ -135,12 +152,11 @@ class ViewController: UIViewController {
     
     
     @IBAction func Done_button(_ sender: Any) {
-        let N:Double = 24
-        let P:Double = 0.0000001
         var numericExpression = resultText.text as! String
         let expr = NSExpression(format: numericExpression)
         let res = expr.expressionValue(with: nil, context: nil) as! Double
-        if (abs(res - N) < P)
+        let soultion = bingo(x:res)
+        if (soultion)
         {
             //resultText.text = "24"
             let banner = NotificationBanner(title: "Correct !!", subtitle: "", style: .success)

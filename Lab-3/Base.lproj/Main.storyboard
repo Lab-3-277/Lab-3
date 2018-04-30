@@ -273,6 +273,7 @@
                     <navigationItem key="navigationItem" title="Make 24" id="U0K-46-IMI"/>
                     <connections>
                         <outlet property="attempt" destination="ph8-R8-nW4" id="Vw8-ha-hS5"/>
+                        <outlet property="done_button" destination="Gor-Qe-yfn" id="raU-VM-2pK"/>
                         <outlet property="num1_out" destination="ip9-5N-rv6" id="lBe-Me-pFl"/>
                         <outlet property="num2_out" destination="GRa-Rd-CCL" id="TLj-OA-6Ai"/>
                         <outlet property="num3_out" destination="Erk-sb-pAq" id="ExJ-hH-Doj"/>
