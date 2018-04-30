@@ -152,6 +152,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func Done_button(_ sender: Any) {
+        
         var numericExpression = resultText.text as! String
         let expr = NSExpression(format: numericExpression)
         let res = expr.expressionValue(with: nil, context: nil) as! Double
@@ -165,16 +166,19 @@ class ViewController: UIViewController {
             //Dialog
             var o = "Binggo!!! " + numericExpression + "=24"
             let alert = UIAlertController(title: o, message: "", preferredStyle: .alert)
-            
-            
             alert.addAction(UIAlertAction(title: "Next Puzzle", style: .cancel, handler: nil))
             
             self.present(alert, animated: true)
+            generateNewPuzzle()
         }
         else{
+            
             let banner = NotificationBanner(title: "Incorrect. Please try again!", subtitle: "", style: .danger)
             banner.show()
+            attempt_count += 1
+            attempt.text = String(attempt_count)
         }
+        
         
     }
     
