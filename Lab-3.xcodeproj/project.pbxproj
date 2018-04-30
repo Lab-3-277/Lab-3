@@ -10,6 +10,7 @@
 		085E41FC227BF5D120B08357 /* Pods_Lab_3UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB7107FCF6341388A7F90F06 /* Pods_Lab_3UITests.framework */; };
 		432709F0876FBAB84BAB3DBC /* Pods_Lab_3UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC83135D3D1E2DBEDF22162 /* Pods_Lab_3UITests.framework */; };
 		6DBE3E2B8C384B80C1ADEE65 /* Pods_Lab_3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 432CE41227FF5AF71BE6593D /* Pods_Lab_3.framework */; };
+		99036FE52097A04300F5127E /* Assign_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99036FE42097A04300F5127E /* Assign_ViewController.swift */; };
 		99CA944D208BBE8400084C37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CA944C208BBE8400084C37 /* AppDelegate.swift */; };
 		99CA944F208BBE8400084C37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CA944E208BBE8400084C37 /* ViewController.swift */; };
 		99CA9452208BBE8400084C37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99CA9450208BBE8400084C37 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		2816F43380841D7A44055873 /* Pods_Lab_3Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Lab_3Tests.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Lab-3-ceqxaysxvetwwecsrzfzsytmoywl/Build/Products/Debug-iphoneos/Pods_Lab_3Tests.framework"; sourceTree = DEVELOPER_DIR; };
 		432CE41227FF5AF71BE6593D /* Pods_Lab_3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Lab_3.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Lab-3-ceqxaysxvetwwecsrzfzsytmoywl/Build/Products/Debug-iphoneos/Pods_Lab_3.framework"; sourceTree = DEVELOPER_DIR; };
 		4EEE2F15627CBD256B8D13D0 /* Pods_Lab_3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lab_3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99036FE42097A04300F5127E /* Assign_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assign_ViewController.swift; sourceTree = "<group>"; };
 		99CA9449208BBE8400084C37 /* Lab-3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lab-3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99CA944C208BBE8400084C37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99CA944E208BBE8400084C37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				99D79C3A20954F2300DD6788 /* pictures */,
 				99CA944C208BBE8400084C37 /* AppDelegate.swift */,
+				99036FE42097A04300F5127E /* Assign_ViewController.swift */,
 				99CA944E208BBE8400084C37 /* ViewController.swift */,
 				99CA9450208BBE8400084C37 /* Main.storyboard */,
 				99CA9453208BBE8700084C37 /* Assets.xcassets */,
@@ -403,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99036FE52097A04300F5127E /* Assign_ViewController.swift in Sources */,
 				99CA944F208BBE8400084C37 /* ViewController.swift in Sources */,
 				99CA944D208BBE8400084C37 /* AppDelegate.swift in Sources */,
 			);
@@ -580,7 +584,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Lab-3/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.Lab-3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -595,7 +602,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Lab-3/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.Lab-3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -611,7 +621,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Lab-3Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.Lab-3Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -628,7 +642,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Lab-3Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.Lab-3Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -644,7 +662,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Lab-3UITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.Lab-3UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -660,7 +682,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Lab-3UITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.Lab-3UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

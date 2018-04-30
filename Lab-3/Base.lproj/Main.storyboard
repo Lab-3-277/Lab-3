@@ -249,6 +249,9 @@
                                         <rightBarButtonItems>
                                             <barButtonItem systemItem="compose" id="H9q-Sg-1jQ">
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <segue destination="Y0G-QA-PBe" kind="show" id="Ib0-Wb-ZYt"/>
+                                                </connections>
                                             </barButtonItem>
                                             <barButtonItem title="Item" image="key.png" id="wU9-SX-SS6">
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -288,6 +291,106 @@
             </objects>
             <point key="canvasLocation" x="752.79999999999995" y="690.40479760119945"/>
         </scene>
+        <!--Assign View Controller-->
+        <scene sceneID="Wfp-Af-H4u">
+            <objects>
+                <viewController id="Y0G-QA-PBe" customClass="Assign_ViewController" customModule="Lab_3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jcO-Fe-98K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aXz-HS-jPd">
+                                <rect key="frame" x="33" y="159" width="47" height="228"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y0G-QA-PBe" id="v3o-Ld-1NH"/>
+                                    <outlet property="delegate" destination="Y0G-QA-PBe" id="jEb-Nx-Fqe"/>
+                                </connections>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yco-yS-Nd9">
+                                <rect key="frame" x="108" y="192" width="53" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y0G-QA-PBe" id="mWm-l9-csh"/>
+                                    <outlet property="delegate" destination="Y0G-QA-PBe" id="8RU-lh-w2N"/>
+                                </connections>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ltX-W1-WxW">
+                                <rect key="frame" x="202" y="192" width="47" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y0G-QA-PBe" id="bRF-Wp-uIJ"/>
+                                    <outlet property="delegate" destination="Y0G-QA-PBe" id="U7p-gy-41V"/>
+                                </connections>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yaJ-v7-KeZ">
+                                <rect key="frame" x="289" y="192" width="47" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y0G-QA-PBe" id="X7T-uB-Nzc"/>
+                                    <outlet property="delegate" destination="Y0G-QA-PBe" id="E0k-Wt-JgE"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQu-iV-fW9">
+                                <rect key="frame" x="136" y="464" width="128" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.32369780539999998" green="0.1063579395" blue="0.574860394" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Assign">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="Assign_Action:" destination="Y0G-QA-PBe" eventType="touchUpInside" id="uN7-5D-uf8"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Num1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhi-ey-YYL">
+                                <rect key="frame" x="38" y="405" width="44" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Num2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scq-v8-IUk">
+                                <rect key="frame" x="125" y="405" width="47" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Num3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRF-O0-RV7">
+                                <rect key="frame" x="215" y="405" width="47" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Num4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="McF-WJ-B2U">
+                                <rect key="frame" x="306" y="405" width="47" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="5bE-I0-Itz"/>
+                    </view>
+                    <connections>
+                        <outlet property="lab1" destination="Rhi-ey-YYL" id="ne7-mF-Vji"/>
+                        <outlet property="lab2" destination="Scq-v8-IUk" id="pK5-MH-Jdb"/>
+                        <outlet property="lab3" destination="HRF-O0-RV7" id="h16-EU-Xl5"/>
+                        <outlet property="lab4" destination="McF-WJ-B2U" id="IC2-Oa-EVC"/>
+                        <outlet property="picker1" destination="aXz-HS-jPd" id="dIt-zN-srO"/>
+                        <outlet property="picker2" destination="Yco-yS-Nd9" id="lq2-wF-9Rl"/>
+                        <outlet property="picker3" destination="ltX-W1-WxW" id="Wcn-tf-7qv"/>
+                        <outlet property="picker4" destination="yaJ-v7-KeZ" id="uT7-5P-qcj"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="try_segue" id="YGm-k0-KYy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s7R-9g-lQE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1612" y="689.5052473763119"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="mak-1i-3w3">
             <objects>
@@ -310,4 +413,7 @@
     <resources>
         <image name="key.png" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="YGm-k0-KYy"/>
+    </inferredMetricsTieBreakers>
 </document>

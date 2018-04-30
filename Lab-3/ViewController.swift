@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     var num2 = 0
     var num3 = 0
     var num4 = 0
+    var assigned = false
     var skip_count = 0
     var attempt_count = 1
     var succeeded_count = 0
@@ -45,7 +46,21 @@ class ViewController: UIViewController {
         //call this method to start timer
         attempt.text = String(attempt_count)
         runTimer()
-        generateRandomNumbers();
+        
+        if( assigned == true)
+        {
+            num1_out.setTitle("\(num1)", for: .normal)
+            num2_out.setTitle("\(num2)", for: .normal)
+            num3_out.setTitle("\(num3)", for: .normal)
+            num4_out.setTitle("\(num4)", for: .normal)
+            
+            assigned = false
+        }
+        else
+        {
+                generateRandomNumbers();
+        }
+        
         
     }
     
