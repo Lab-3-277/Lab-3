@@ -152,11 +152,19 @@ class ViewController: UIViewController {
     
     
     @IBAction func Done_button(_ sender: Any) {
-        
+        var para:Bool = false;
         var numericExpression = resultText.text as! String
+        let characters = Array(numericExpression)
+        if (numericExpression.contains("(") || numericExpression.contains(")"))
+        {
+            para = true;
+        }
+        if(!para || isBalanced(sequence: characters))
+        {
         let expr = NSExpression(format: numericExpression)
         let res = expr.expressionValue(with: nil, context: nil) as! Double
         let soultion = bingo(x:res)
+        
         if (soultion)
         {
             //resultText.text = "24"
@@ -178,8 +186,33 @@ class ViewController: UIViewController {
             attempt_count += 1
             attempt.text = String(attempt_count)
         }
+        }
+        else{
+            let banner = NotificationBanner(title: "Paranthesis mismatch. Please try again!", subtitle: "", style: .danger)
+            banner.show()
+            attempt_count += 1
+            attempt.text = String(attempt_count)
+        }
         
         
+    }
+    
+    func isBalanced(sequence: [Character]) -> Bool {
+        var stack = [Character]()
+        for bracket  in sequence {
+            switch bracket {
+            case "(":
+                stack.append(bracket)
+            case  ")":
+                if stack.isEmpty || (bracket == ")" && stack.last != "(")  {
+                    return false
+                }
+                stack.removeLast()
+            default:
+                let y = 0//fatalError("unknown bracket found")
+            }
+        }
+        return stack.isEmpty
     }
     
     
