@@ -582,7 +582,9 @@
 			baseConfigurationReference = 211AFAE41F33476CB53B133A /* Pods-Lab-3.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 83DFGMV3ZU;
 				INFOPLIST_FILE = "Lab-3/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -590,6 +592,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.Lab-3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -600,7 +603,9 @@
 			baseConfigurationReference = DF1C6B55286D8898AB8D58A7 /* Pods-Lab-3.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 83DFGMV3ZU;
 				INFOPLIST_FILE = "Lab-3/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -608,6 +613,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-77.Lab-3";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

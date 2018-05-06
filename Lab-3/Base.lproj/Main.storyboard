@@ -422,6 +422,7 @@
         <image name="key.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Ib0-Wb-ZYt"/>
         <segue reference="YGm-k0-KYy"/>
     </inferredMetricsTieBreakers>
 </document>

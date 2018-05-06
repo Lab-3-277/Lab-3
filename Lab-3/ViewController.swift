@@ -9,20 +9,26 @@
 import UIKit
 import NotificationBannerSwift
 
+var seconds = 0
+var skip_count = 0
+var attempt_count = 1
+var succeeded_count = 0
+
+var check_back_pressed = false
+var clear_pressed = false
+
 
 class ViewController: UIViewController {
     
     // variables for timer
-    var seconds = 0
+    
     var timer = Timer()
     var num1 = 0
     var num2 = 0
     var num3 = 0
     var num4 = 0
     var assigned = false
-    var skip_count = 0
-    var attempt_count = 1
-    var succeeded_count = 0
+   
     
     // timer label from UI
     @IBOutlet var timer_lable: UILabel!
@@ -45,10 +51,20 @@ class ViewController: UIViewController {
         Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.checkLabelChange), userInfo: nil, repeats: true)
         //call this method to start timer
         attempt.text = String(attempt_count)
-        runTimer()
+        
         
         if( assigned == true)
         {
+            
+            if( !(resultText.text?.isEmpty)! ||  check_back_pressed  || clear_pressed )
+            {
+                skip_count =  skip_count + 1
+                skipped.text = String( skip_count )
+            }
+            
+            
+            runTimer()
+          
             num1_out.setTitle("\(num1)", for: .normal)
             num2_out.setTitle("\(num2)", for: .normal)
             num3_out.setTitle("\(num3)", for: .normal)
@@ -58,7 +74,8 @@ class ViewController: UIViewController {
         }
         else
         {
-                generateRandomNumbers();
+            runTimer()
+            generateRandomNumbers();
         }
         
         
@@ -82,7 +99,7 @@ class ViewController: UIViewController {
     
     // action maethods for sidebar buttons
     @IBAction func Assign(_ sender: Any) {
-        restart_timer()
+        skipped.text =  String( Int(skipped.text!)! + 1 )
     }
     
     /*@IBAction func show_me_button(_ sender: Any) {
@@ -93,6 +110,8 @@ class ViewController: UIViewController {
     func runTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(ViewController.updateTimer)), userInfo: nil, repeats: true)
     }
+    
+    
     @objc func updateTimer() {
         var min = Int(seconds) / 60 % 60
         var sec = Int(seconds) % 60
@@ -235,32 +254,43 @@ class ViewController: UIViewController {
     
    
     @IBAction func Back_Button(_ sender: Any) {
-        // write code to delete one from result text box
-        var numericExpression = resultText.text as! String
-       
         
-        if( num1_out.titleLabel?.text ==  String(numericExpression.last!)   )
+        check_back_pressed = true
+        
+        
+        if( !(resultText.text?.isEmpty)! )
         {
-            num1_out.isEnabled = true
-            num1_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
-        }
-        if( num2_out.titleLabel?.text ==  String(numericExpression.last!)   )
-        {
-            num2_out.isEnabled = true
-            num2_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
-        }
-        if( num3_out.titleLabel?.text ==  String(numericExpression.last!)   )
-        {
-            num3_out.isEnabled = true
-            num3_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
-        }
-        if( num4_out.titleLabel?.text ==  String(numericExpression.last!)   )
-        {
-            num4_out.isEnabled = true
-            num4_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+            
+            // write code to delete one from result text box
+            var numericExpression = resultText.text as! String
+            
+            
+            
+            if( num1_out.titleLabel?.text ==  String(numericExpression.last!)   )
+            {
+                num1_out.isEnabled = true
+                num1_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+            }
+            if( num2_out.titleLabel?.text ==  String(numericExpression.last!)   )
+            {
+                num2_out.isEnabled = true
+                num2_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+            }
+            if( num3_out.titleLabel?.text ==  String(numericExpression.last!)   )
+            {
+                num3_out.isEnabled = true
+                num3_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+            }
+            if( num4_out.titleLabel?.text ==  String(numericExpression.last!)   )
+            {
+                num4_out.isEnabled = true
+                num4_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+            }
+            
+            resultText.text = String(numericExpression.dropLast())
+            
         }
         
-        resultText.text = String(numericExpression.dropLast())
     }
     
     
@@ -299,6 +329,32 @@ class ViewController: UIViewController {
     
     @IBAction func Clear(_ sender: Any) {
         resultText.text = ""
+        
+        clear_pressed = true
+        
+        
+        
+        if(!num1_out.isEnabled)
+        {
+            num1_out.isEnabled = true
+            num1_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        }
+        if(!num2_out.isEnabled)
+        {
+            num2_out.isEnabled = true
+            num2_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        }
+        if(!num3_out.isEnabled)
+        {
+            num3_out.isEnabled = true
+            num3_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        }
+        if(!num4_out.isEnabled)
+        {
+            num4_out.isEnabled = true
+            num4_out.backgroundColor = #colorLiteral(red: 0.3236978054, green: 0.1063579395, blue: 0.574860394, alpha: 1)
+        }
+        
     }
     
     
@@ -316,6 +372,8 @@ class ViewController: UIViewController {
     {
         
         resultText.text = ""
+        
+        
         
         attempt_count = 1
         
