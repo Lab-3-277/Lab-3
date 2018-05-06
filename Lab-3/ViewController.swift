@@ -9,26 +9,27 @@
 import UIKit
 import NotificationBannerSwift
 
-var seconds = 0
+
 var skip_count = 0
 var attempt_count = 1
 var succeeded_count = 0
 
 var check_back_pressed = false
 var clear_pressed = false
-
+var result_changed = false
+var seconds = 0
 
 class ViewController: UIViewController {
     
     // variables for timer
     
-    var timer = Timer()
+    
     var num1 = 0
     var num2 = 0
     var num3 = 0
     var num4 = 0
     var assigned = false
-   
+    var timer = Timer()
     
     // timer label from UI
     @IBOutlet var timer_lable: UILabel!
@@ -47,39 +48,43 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        resultText.text = ""
         Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.checkLabelChange), userInfo: nil, repeats: true)
         //call this method to start timer
-        attempt.text = String(attempt_count)
         
         runTimer()
         
         skipped.text = String(skip_count)
-        attempt.text = String(attempt_count)
+        
         succeded_tex.text = String(succeeded_count)
         
         
         
         if( assigned == true)
         {
-            
-            if( !(resultText.text?.isEmpty)! ||  check_back_pressed  || clear_pressed )
+            var strin = resultText.text
+            if(result_changed ||  check_back_pressed  || clear_pressed )
             {
                 skip_count =  skip_count + 1
                 skipped.text = String( skip_count )
             }
+            attempt_count =  1
+            attempt.text = String(attempt_count)
             
             
             num1_out.setTitle("\(num1)", for: .normal)
             num2_out.setTitle("\(num2)", for: .normal)
             num3_out.setTitle("\(num3)", for: .normal)
             num4_out.setTitle("\(num4)", for: .normal)
-            
+            check_back_pressed = false
+            clear_pressed = false
             assigned = false
+            result_changed = false;
+            
         }
         else
         {
-           
+            attempt_count =  1
+            attempt.text = String(attempt_count)
             generateRandomNumbers();
         }
         
@@ -135,59 +140,78 @@ class ViewController: UIViewController {
         resultText.text?.append("\(number as! String)")
         sender.isEnabled = false
         sender.backgroundColor = #colorLiteral(red: 0.218662435, green: 0, blue: 0.3628733235, alpha: 1)
+        result_changed = true
     }
     
     @IBAction func buttonThree(_ sender: UIButton) {
         let number = sender.titleLabel?.text
         resultText.text?.append("\(number as! String)")
         sender.isEnabled = false
-         sender.backgroundColor = #colorLiteral(red: 0.218662435, green: 0, blue: 0.3628733235, alpha: 1)
+        sender.backgroundColor = #colorLiteral(red: 0.218662435, green: 0, blue: 0.3628733235, alpha: 1)
+        result_changed = true
+
     }
     
     @IBAction func buttonTwo(_ sender: UIButton) {
         let number = sender.titleLabel?.text
         resultText.text?.append("\(number as! String)")
         sender.isEnabled = false
-          sender.backgroundColor = #colorLiteral(red: 0.218662435, green: 0, blue: 0.3628733235, alpha: 1)
+        sender.backgroundColor = #colorLiteral(red: 0.218662435, green: 0, blue: 0.3628733235, alpha: 1)
+        result_changed = true
+
     }
     
     @IBAction func buttonOne(_ sender: UIButton) {
         let number = sender.titleLabel?.text
         resultText.text?.append("\(number as! String)")
         sender.isEnabled = false
-         sender.backgroundColor = #colorLiteral(red: 0.218662435, green: 0, blue: 0.3628733235, alpha: 1)
+        sender.backgroundColor = #colorLiteral(red: 0.218662435, green: 0, blue: 0.3628733235, alpha: 1)
+        result_changed = true
+
     }
     
     @IBAction func buttonAdd(_ sender: UIButton) {
         let op = sender.titleLabel?.text
         resultText.text?.append("\(op as! String)")
+        result_changed = true
+
     }
     
     
     @IBAction func buttonSub(_ sender: UIButton) {
         let op = sender.titleLabel?.text
         resultText.text?.append("\(op as! String)")
+        result_changed = true
+
     }
     
     
     @IBAction func buttonMul(_ sender: UIButton) {
         let op = sender.titleLabel?.text
         resultText.text?.append("\(op as! String)")
+        result_changed = true
+
     }
     
     @IBAction func buttonDiv(_ sender: UIButton) {
         let op = sender.titleLabel?.text
         resultText.text?.append("\(op as! String)")
+        result_changed = true
+
     }
     
     @IBAction func buttonLeftPara(_ sender: UIButton) {
         let op = sender.titleLabel?.text
         resultText.text?.append("\(op as! String)")
+        result_changed = true
+
     }
     
     @IBAction func buttonRightPara(_ sender: UIButton) {
         let op = sender.titleLabel?.text
         resultText.text?.append("\(op as! String)")
+        result_changed = true
+
     }
     
     
@@ -377,9 +401,10 @@ class ViewController: UIViewController {
     {
         
         resultText.text = ""
-        
-        
-        
+        check_back_pressed = false
+        clear_pressed = false
+        result_changed = false
+ 
         attempt_count = 1
         
         attempt.text = String(attempt_count)
