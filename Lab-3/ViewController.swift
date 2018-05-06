@@ -52,6 +52,13 @@ class ViewController: UIViewController {
         //call this method to start timer
         attempt.text = String(attempt_count)
         
+        runTimer()
+        
+        skipped.text = String(skip_count)
+        attempt.text = String(attempt_count)
+        succeded_tex.text = String(succeeded_count)
+        
+        
         
         if( assigned == true)
         {
@@ -63,8 +70,6 @@ class ViewController: UIViewController {
             }
             
             
-            runTimer()
-          
             num1_out.setTitle("\(num1)", for: .normal)
             num2_out.setTitle("\(num2)", for: .normal)
             num3_out.setTitle("\(num3)", for: .normal)
@@ -74,7 +79,7 @@ class ViewController: UIViewController {
         }
         else
         {
-            runTimer()
+           
             generateRandomNumbers();
         }
         
